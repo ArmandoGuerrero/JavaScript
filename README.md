@@ -10,15 +10,15 @@
 
 
 
-## JavaScript Variables.  
+## JavaScript Variables.
 
-## JavaScript Functions.  
+## JavaScript Functions.
 
-## JavaScript Object & Methods.  
+## JavaScript Object & Methods.
 
-## JavaScript CallBacks.  
+## JavaScript CallBacks.
 
-## JavaScript Arrow Functions.  
+## JavaScript Arrow Functions.
 
 Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
 ```JavaScript
