@@ -20,7 +20,7 @@
 
 ## JavaScript Arrow Functions.
 
-#### Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
+### Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
 
 Given the next Anonymous Function:  
 `var sayHello = function () { alert("Hello"); };`
@@ -31,15 +31,14 @@ The same in Arrow Notation:
 Even no exists parameters need parentheses though! Note that there is not FUNCTION keyword. Use curly braces only where more than one expression is included in the main body.
 
 If only one parameter, parentheses aren't required...
-`var myFunc = x => alert(x);`
-`const sumTwice = x => x+x;`
+`var myFunc = x => alert(x);
+const sumTwice = x => x+x;`
 
 Example with two parameters:
-var myFunc = (x, y) => alert(x+y);
+`var myFunc = (x, y) => alert(x+y);  
 const multTwo = (a, b) => a * b;
-	
-var imc = (peso, estatura) => peso/(estatura*estatura);
-//  *imc indice de masa corporal
+var imc = (peso, estatura) => peso/(estatura*estatura);`  
+*imc indice de masa corporal
 
 /*
 All above Arrow function's body are know as implicit RETURN statement or value; i.e.: when only one expression is evaluated, the return output is IMPLICIT, so we don't need the RETURN keyword nor curly braces.
