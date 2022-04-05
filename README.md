@@ -20,10 +20,9 @@
 
 ## JavaScript Arrow Functions.
 
-##### Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
+#### Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
 
 Given the next Anonymous Function:  
-
 `var sayHello = function () { alert("Hello"); };`
 
 The same in Arrow Notation:  
