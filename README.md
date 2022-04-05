@@ -43,22 +43,17 @@ var imc = (peso, estatura) => peso/(estatura*estatura);`
 
 All above Arrow function's body are know as implicit RETURN statement or value; i.e.: when only one expression is evaluated, the return output is IMPLICIT, so we don't need the RETURN keyword nor curly braces.  
 
-// When using any special parameters, just wrap the parameters in parentheses.
-// Use curly braces only where more than one expression is included in the main body.
+When using any special parameters, just wrap the parameters in parentheses.  
+Use curly braces only where more than one expression is included in the main body.  
 
+MULTIPLE ARGUMENTS, MULTIPLE STATEMENTS, EXPLICIT RETURN:  
+	`var cuadratic = (a,b) => {
+		if ( a!=0 && b!=0 )
+			{ return a*b; } };
+	console.log( cuadratic(3,3) );   // 9`  
 
-/*  #####
-		MULTIPLE ARGUMENTS, MULTIPLE STATEMENTS, EXPLICIT RETURN:
-###### */
-		var cuadratic = (a,b) => {
-			if ( a!=0 && b!=0 )
-				{ return a*b; } };
-		console.log( cuadratic(3,3) );   // 9
-
-
-
-//  # # # # # INCLUDING DEFAULT PARAMETERS:
-//  If the arrow function has one parameter with a default value, you must keep the parentheses:
+INCLUDING DEFAULT PARAMETERS:  
+If the arrow function has one parameter with a default value, you must keep the parentheses:
 
 	const hiTeam = (who = 'Vikings') => {
 				return `${who}, Welcome!`; };
