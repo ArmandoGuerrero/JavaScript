@@ -20,12 +20,13 @@
 
 ## JavaScript Arrow Functions.
 
-#####Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
+##### Arrow functions are always anonymous, so they must be assigned to an expression reference like: VAR, CONST or LET.
 
-Given the next Anonymous Function:
+Given the next Anonymous Function:  
+
 `var sayHello = function () { alert("Hello"); };`
 
-The same in Arrow Notation:
+The same in Arrow Notation:  
 `var sayHello = () => alert("Hello");`
 
 Even no exists parameters need parentheses though! Note that there is not FUNCTION keyword. Use curly braces only where more than one expression is included in the main body.
