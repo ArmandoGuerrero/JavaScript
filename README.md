@@ -35,7 +35,9 @@ If only one parameter, parentheses aren't required...
 const sumTwice = x => x+x;`
 
 Example with two parameters:  
-`var myFunc = (x, y) => alert(x+y);const multTwo = (a, b) => a * b;var imc = (peso, estatura) => peso/(estatura*estatura);`  
+`var myFunc = (x, y) => alert(x+y);  
+const multTwo = (a, b) => a * b;  
+var imc = (peso, estatura) => peso/(estatura*estatura);`  
 *imc indice de masa corporal  
 
 All above Arrow function's body are know as implicit RETURN statement or value; i.e.: when only one expression is evaluated, the return output is IMPLICIT, so we don't need the RETURN keyword nor curly braces.  
@@ -50,17 +52,14 @@ MULTIPLE ARGUMENTS, MULTIPLE STATEMENTS, EXPLICIT RETURN:
 	console.log( cuadratic(3,3) );   // 9`  
 
 INCLUDING DEFAULT PARAMETERS:  
-If the arrow function has one parameter with a default value, you must keep the parentheses:
+If the arrow function has one parameter with a default value, you must keep the parentheses:  
 
-	const hiTeam = (who = 'Vikings') => {
-				return `${who}, Welcome!`; };
+	`const hiTeam = (who = 'Vikings') => {  
+	return `${who}, Welcome!`; };
+	hiTeam();       // "Vikings, Welcome!" `
 
-	hiTeam();       // "Vikings, Welcome!"
-
-
-
-/*  ##### IMPLICIT RETURN BEING OBJECTS LITERALS ##### 
-// When an object literal is output as implicit return, must be wrapped in parentheses. */
+IMPLICIT RETURN BEING OBJECTS LITERALS  
+When an object literal is output as implicit return, must be wrapped in parentheses. */
 
 var thatObjects = () => ({ name: 'foo', nick: 'bar' });
 
