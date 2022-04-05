@@ -1,12 +1,12 @@
 # JavaScript
 ### Examples collection to learn JavaScript.  
 
-- [JavaScript Variables](#javascript-variables.)
+- [JavaScript Variables](#javascript-variables)
 - [JavaScript Functions](#javascript-functions.)
-- [JavaScript Objects & Methods](#javascript-object-&-methods.)
-- [JavaScript CallBacks](#javascript-callbacks.)
-- [JavaScript Arrow Functions](#javascript-arrow-functions.)
-- [JavaScript Promises](#javascript-promises.)
+- [JavaScript Objects & Methods](#javascript-object-&-methods)
+- [JavaScript CallBacks](#javascript-callbacks)
+- [JavaScript Arrow Functions](#javascript-arrow-functions)
+- [JavaScript Promises](#javascript-promises)
 
 
 
