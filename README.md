@@ -44,7 +44,8 @@ All above Arrow function's body are know as implicit RETURN statement or value; 
 
 When using any special parameters, just wrap the parameters in parentheses.  
 Use curly braces only where more than one expression is included in the main body.  
-
+  
+  
 MULTIPLE ARGUMENTS, MULTIPLE STATEMENTS, EXPLICIT RETURN:  
 	`var cuadratic = (a,b) => {
 		if ( a!=0 && b!=0 )
