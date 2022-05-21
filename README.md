@@ -33,7 +33,8 @@ Given the next Anonymous Function:
 The same in Arrow Notation:  
 	`var sayHello = () => alert("Hello");`  
 
-Even no exists parameters need parentheses though! Note that there is not FUNCTION keyword. Use curly braces only where more than one expression is included in the main body.
+Even no exists parameters need parentheses though! Note that there is not FUNCTION keyword. Use curly
+braces only where more than one expression is included in the main body.
 
 If only one parameter, parentheses aren't required...  
 	`var myFunc = x => alert(x);  
@@ -45,7 +46,8 @@ Example with two parameters:
 	var imc = (peso, estatura) => peso/(estatura*estatura);`  
 *imc indice de masa corporal  
 
-All above Arrow function's body are know as implicit RETURN statement or value; i.e.: when only one expression is evaluated, the return output is IMPLICIT, so we don't need the RETURN keyword nor curly braces.  
+All above Arrow function's body are know as implicit RETURN statement or value; i.e.: when only one  
+expression is evaluated, the return output is IMPLICIT, so we don't need the RETURN keyword nor curly braces.  
 When using any special parameters, just wrap the parameters in parentheses.  
 Use curly braces only where more than one expression is included in the main body.  
   
@@ -81,7 +83,9 @@ When an object literal is output as implicit return, must be wrapped in parenthe
 Given the next object notation...
 `const person = { first:'Peter', last:'Bagge', city:'Seattle', state:'Washington', };`
 
-If using any special parameters, just wrap the parameters in parentheses. Also when return a value using parentheses, that can render an *implicit* return with multi-line items while still omitting the return statement:  
+If using any special parameters, just wrap the parameters in parentheses. Also when return a value  
+using parentheses, that can render an *implicit* return with multi-line items while still omitting  
+the return statement:  
 ```JavaScript
 	const nameAndLocation = ({ last, city, state, first }) => ({  
 		fullName:`${first} ${last}`, location:`${city}, ${state}`, });  
@@ -151,7 +155,8 @@ let person = ((name) => {
 	// Arrow Function way ...
 	var result = values.sort((a, b) => a - b);
 	
-	// The array methods that accept callback functions, such as sort(), map(), and reduce(), can all benefit from this simpler syntax!
+	// The array methods that accept callback functions, such as sort(), map(), and reduce(),  
+	// can all benefit from this simpler syntax!
 ```
 
 #### Arrow functions are great ways to make 'higher-order functions': functions  that  return  other  functions.
