@@ -17,6 +17,99 @@
 ## JavaScript Object & Methods.
 
 ## JavaScript CallBacks.
+#### C U A S I  &nbsp; &nbsp;  C A L L B A C K  &nbsp; &nbsp;  F U N C T I O N
+```JavaScript
+// When functions are used only once, a common pattern is an IIFE (Immediately Invokable Function Expression).
+(function() {  statements  })();  </script>
+		<!-- Note the Anonymous Function -->  
+
+	/* Using an IIFE Function to call another Function.
+	CallBack Function: A Function that 	is called
+	and executed inside another Function */
+
+function hiTeam(myWords) { document.write("<h1>Hola y Adios...: " + myWords + "</h1>"); }
+ // Hola y Adios...: Carpe Diem
+ // Hola y Adios...: Ciao... Bye
+(function (){
+		var hello = "Carpe Diem", finish = "Ciao... Bye";
+			hiTeam(hello);
+			hiTeam(finish);
+})();		// hiTeam is a CUASI CallBack Function
+```
+&nbsp;  
+
+#### Some information to know about callbacks in general:
+
+The function you send in to a function as a callback may be called zero times, once, or multiple times.
+The callback function may be called synchronously or asynchronously and possibly both synchronously and asynchronously.
+
+&nbsp;  
+
+#### SYNCHRONOUS  &nbsp;  CALLBACK  &nbsp;  FUNCTIONS
+```JavaScript
+// A function that uses a callback named `cb` as a parameter
+function getSyncMessage(cb) {
+	// Calling the cb function
+    cb("Hello Team!"); // hence *message* parameter becomes Hello Team *argument*
+}
+
+console.log("Before getSyncMessage call");
+// Sending in an anonymous callback function as an argument:
+getSyncMessage(function(message) {
+    console.log(message);
+});
+console.log("After getSyncMessage call");
+```
+O U T P U T :  
+Before getSyncMessage call  
+Hello Team!  
+After getSyncMessage call  
+
+&nbsp;  
+
+&nbsp;  
+
+#### C A L L B A C K S  &nbsp; &nbsp;  E X A M P L E S
+```JavaScript
+function add(a, b, callback) { // function declaration
+  suma = callback(a + b);  // function execution to spawn *Result: 8* 
+}
+
+console.log('before');
+add(5, 3, function(suma) {
+		console.log('Result: ' + suma);
+	});
+console.log('after');
+
+
+
+//  #   #   #   #   #   #   #   #   #   #   #
+
+
+
+function add (equis, y) {
+  return equis + y;
+}
+function addFive (x, addReference) {
+  console.log("The Cat says: ", add(10, 10)); // 20
+  return addReference(x, 5); // 15
+}
+console.log("The Dog says: ", addFive(10, add)); // 15
+
+// USING  FAIRLY  WORDS  TO  NAME  EACH  FUNCTION  ELEMENT:
+
+function add (equis, y) {
+  return equis + y;
+}
+function higherOrderFunction (x, callback) {
+  console.log("The Cat says: ", add(10, 20)); // 30
+  return callback(x, 5); // 15
+}
+console.log("The Dog says: ", higherOrderFunction(10, add)); // 15
+```
+&nbsp;  
+
+&nbsp;  
 
 &nbsp;  
 
