@@ -10,9 +10,408 @@
 
 
 
-## JavaScript Variables.
+## JavaScript Variables.  
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
 
 ## JavaScript Functions.
+#### Canonical names: PARAMETER in function declaration, ARGUMENT in function invocation.
+### Function Declaration:
+```JavaScript
+	function functionName (width, height) {
+	// Inside parenthesses place optional Parameters.
+	// If a Function declaration expect some Parameter, but the Function call lacks
+	such Argument, it will output ERROR UNDEFINED.
+			statements;
+			return Value;  }
+```
+When Function Declaration do not write semicolon after curly braces, being Function
+Expression it is needed!
+The RETURN Value can be any local Variable inside the functionName, any number, string
+or boolean.  RETURN Value it's Optional.   
+
+&nbsp;
+
+#### Invoking or Calling a Function:
+		
+		functionName(arg1, arg2, arg3);
+		
+Unlike Function Declaration or Function Expression, when calling a Function DO NOT place
+a space before or between nor after parentheses:  
+`sayHello();`
+		
+Arguments are required and always they must be in the same consecutive order of the
+Parameters in the function´s declaration statement.
+If a Function declaration expect some Parameter, but the Function call lacks such
+Argument, the CODE WILL RUN ANYWAY with an output ERROR UNDEFINED!
+
+#### ¡ ¡ ¡ PARAMETERS always are considered as local variables ! ! !
+		
+Canonical names: PARAMETER in function declaration, ARGUMENT in function invocation.
+Both can take different reference name when transferring data in between. In the next
+example check that (speed, time) parameters versus numbers (12, 13) arguments are
+defined with different reference names.
+
+&nbsp;  
+  
+### Calling a Function & assing its return value to a DOM Id element:  
+ejem:  Praxis130  &  132.  
+```JavaScript
+	function getDistance (speed, time) {
+			var distance = speed * time;
+				return distance; }
+		
+		showDistance.innerHTML = getDistance (12, 33);
+		//   showDistance it´s a DOM element Id
+```
+&nbsp;  
+
+
+NOTE 1: Function statements always use parentheses! Function callings NOT always!
+
+NOTE 2: Function Hoisting: In the call stack canonical Functions Declarations
+Notations are not part of the regular top-to-bottom flow of control, so the
+Functions are moved to the top of the scope that belongs...  
+
+```JavaScript
+console.log("The dog says:", bark());   // Function calling above its Declaration
+function bark () { return "Wuauuuu!"; }    // Runs Ok!  
+```
+&nbsp;  
+
+NOTE 3: Variable declared without var, let or const keyword inside any function
+becomes global variable automatically.
+
+
+
+### Using variables as arguments to call a Function & assing its return value to another variable.  
+ejem: Praxis130
+
+Once provided user input through the DOM:  
+`Cifra Promedio 1: <input type="text" id="Val-Promedio-1"><br />`
+<!-- this  will  be  the  i,  j,  or  k  value :  -->
+```JavaScript
+var input_i = document.getElementById('Val-Promedio-1').value;   .  .  .
+var i = parseInt(input_i);
+
+function Average(a, b, c)     { var suma = a+b+c ;  var result = suma/3;
+    return result; }
+
+var returnValue = Average(i, j, k);		//    Function Average called.
+```
+NOTE  that  i,  j,  k  are variables too!  
+
+returnValue gets the RESULT value throught the AVERAGE's return statement.  
+¡¡¡   If no RETURN statement, NO value sent to: var returnValue   !!!
+```JavaScript
+// Display the Promedio to the user.
+document.getElementById('Promedio').innerHTML = returnValue;
+/* returnValue it´s the "return result" output from Average */
+```
+&nbsp;  
+
+&nbsp;  
+
+### F U N C T I O N  &nbsp; &nbsp;  E X P R E S S I O N S
+FUNCTIONS  AS  VARIABLES  OR  VALUES:  
+Unlike Canonical Function Declarations that always begins with the Function keyword, statements involving functions which do not start with FUNCTION Keyword are FUNCTION EXPRESSIONS.
+
+
+#### SIMPLEST FUNCTION EXPRESSION
+```JavaScript
+var sayHello;     // variable declaration
+sayHello = function ()  { console.log("Hello World"); }; // <-- last semicolon it's required!
+// Being a variable as origin statement, the semicolon
+// at the end of the function expression is required!.
+// It is an Anonymous Function (next section)
+
+
+// It could be done in one step:  
+var sayHello = function () {  // ... ...
+// depending on the statements... ; <--optional semicolon
+};
+// The last semicolon it's needed as it is a function expression!
+
+// REMEMBER THE DIFERENCE WITH A FUNCTION DECLARATION:
+function sayHello () { console.log("Hello World"); }
+// No need semicolon when close the declaration!
+```
+&nbsp;  
+
+&nbsp;  
+
+#### When functions are used only once, a common pattern is an IIFE (Immediately Invokable Function Expression).  
+`(function() {  statements  })();`  
+Note the Anonymous Function (next section)  
+
+&nbsp;
+
+Using an IIFE Function to call another Function. CALLBACK FUNCTION.  
+CallBack Function: A Function that is called and executed inside another Function.  
+
+&nbsp;
+```JavaScript
+function hiTeam(myWords) { document.write("<h1>Hola y Adios...: " + myWords + "</h1>"); }
+ // Hola y Adios...: Carpe Diem
+ // Hola y Adios...: Ciao... Bye
+
+(function (){
+		var hello = "Carpe Diem", finish = "Ciao... Bye";
+		hiTeam(hello);
+		hiTeam(finish);
+})();			// hiTeam is a CallBack Function
+```  
+&nbsp;
+
+Functions that renders as Variables or Values . . .  
+Ejem. Praxis 133
+```JavaScript
+function toCentigrade(degFahren) {
+	var degCent = 5 / 9 * (degFahren - 32);
+	document.write(degFahren + " Fahrenheigt es " + degCent + " Celsius.<br />"); }
+	
+function toFahrengeit(degCent) {
+	var degFahren = 9 / 5 * degCent + 32;
+	document.write(degCent + " Celsius es " + degFahren + " Fahrenheigt.<br />"); }
+
+function convertir(convertidor, temperature)
+
+// toFahrengeit OR toCentigrade functions are taken as variables -or values- and
+// assingned to the CONVERTIDOR parameter, the second argument -a number- passes to
+// TEMPERATURE parameter.
+
+{ convertidor(temperature); }    // convertidor = toCentigrade OR toFahrengeit
+
+// In this CONVERTIR function's body we have a simple function call: CONVERTIDOR
+// wich has, in this runtime moment, the value (the code) of the toFahrengeit OR
+// toCentigrade functions, followed by the TEMPERATURE number argument.
+
+convertir(toCentigrade, 33);   // Calling CONVERTIR with toCentigrade argument
+convertir(toFahrengeit, 23);   // Calling CONVERTIR with toFahrengeit argument
+```
+&nbsp;  
+
+&nbsp;  
+
+### A N O N Y M O U S  &nbsp; &nbsp;  F U N C T I O N S
+An Anonymous Function is an EXPRESSION not a DECLARATION, so UNLESS they are  
+Callbacks or Event Handler, they are always assignements and get bound to a  
+Variable Name.
+
+#### Anonymous Function Expression:
+`var myFunction = function() {   statements   };`
+
+&nbsp;  
+
+`var myfunc = function() { alert('This is anonymous'); };`
+
+&nbsp;
+
+#### Named Function Expression:
+`var myFunction = function niceName() {   statements   };`
+When possible, it's better working with named functions in order to  
+find the origin of any error in the debugger or console stack trace.  
+
+&nbsp;  
+
+#### Anonymous Function as Event Handler when using a JavaScript built in Method...
+for instance: AddEventListener.
+```JavaScript
+var dumpOrder = document.getElementById("submitButton");
+dumpOrder.addEventListener("click", function() {
+window.alert("Thanks for your order! We appreciate you."); }, false);
+```
+&nbsp;  
+
+#### Anonymous Function bound to a Method Name, via Object Notation Constructor:
+```JavaScript
+	var order = {
+		items: { item1:"KJ24", price1:2.95, item2:"AW23", price2:4.99 },
+		generateInvoice: function() { /* function statements */  }
+		};
+	// To call the Object Property generateInvoice() Method we can use:
+			order.generateInvoice();   // Note the Parenthesses
+
+// Although generateInvoice renders as Method Name, strictly speaking the
+Anonymous Function it's the Value of the generateInvoice OBJECT PROPERTY Name.
+```
+&nbsp;  
+
+&nbsp;  
+
+### Function as Object Property Value.
+Property Name: Method Name.  
+Property Value: Reference to included Function (usually anonymous).  
+or Early Existing External Function.  
+
+&nbsp;  
+
+Given such Early External Function Declaration:  
+```JavaScript
+function OrderA() {alert('Price Two: ' + stockToSend.items.price2);}
+
+var stockToSend = { myOrders: OrderA, // myOrders(method name)..... OrderA(method value)
+// When OrderA function is called no parentheses or quotes are used!
+	items: { item1:"KJ24", price1:2.95, item2:"AW23", price2:4.99} };
+	
+	// To call the Object Property Name myOrders() as Method,
+	// whose Property Value is the Function reference OrderA (method value), use:
+	
+	//  Note the parenthesses to fetch myOrders ...
+stockToSend.myOrders();
+```
+
+#### Variables declared without var, let or const keyword inside any function becomes global variables automatically.
+
+&nbsp;  
+
+&nbsp;  
+
+### U S I N G  &nbsp;  A R R A Y S  &nbsp;  T O   P U T  &nbsp;  M U L T I P L E  &nbsp;  R E T U R N  &nbsp;  V A L U E S
+```JavaScript
+var customCar, carOutPut, myCarA, myCarB;
+customCar = function (name, year, color, price, engine) {
+	let modelo = year; let nombre = name; let precio = (price+50000);
+		return [ modelo, nombre, precio ] ;
+	};
+
+	myCarA = customCar("Mustang", 2002, "Rojo", 650000, "V8 4.0");
+	myCarB = customCar("BMW 500", 2006, "Navy", 900000, "V6 3.0");
+
+	carOutPut = function (newCar) { 
+	return "Nombre: " + newCar[1] + `   Año: ${newCar[0]}` + "    Precio: "
+	+ newCar[2] };
+
+console.log(carOutPut(myCarA));
+console.log(carOutPut(myCarB));
+```
+&nbsp;  
+
+&nbsp;  
+
+### Custom Object Constructor Functions.  No parameters.   part  1  of  3.
+Used to instantiate objects without define them;  i.e. NO VALUES.  
+
+NOTE. There is the Default Generic Object Constructor: Object();  
+	  that uses the next sintax:  
+	  var MyObject = new nameOfTheObject(); &nbsp; No uses the FUNCTION constructor
+```JavaScript
+function Item()  {this.color = undefined; 	
+	 //   Item() ... The Custom Constructor Function Name
+		this.count = 0;      //zero
+		// an anonymous Function that renders as object ...
+		this.log = function() { console.log("Quantity: " + this.count + ", Color: "
+		+ this.color); }; }
+					
+	//   So we can create more Objects using the Item()  constructor:
+		 var MyObject = new Item();
+
+	//   Then coding to set property names & values: 
+		MyObject.color = "Red";
+		MyObject.count = 5;
+	
+	//   As well as call any function inside the constructor:  
+		MyObject.log();	//    CONSOLE OUTPUT:  Quantity: 5, Color: Red
+```
+&nbsp;  
+
+&nbsp;  
+
+### Custom Object Constructor Functions with Parameters.  part 2 of 3.
+ejem:  Praxis134  
+
+NOTE. There is the Default Generic Object Constructor: Object();
+	  that uses the next sintax:  
+	  `var MyObject = new nameOfTheObject();` &nbsp; No uses the FUNCTION constructor  
+#### Having the next button:
+	`<button type="button" id="getItems">Show Items !</button>`
+&nbsp;  
+```JavaScript
+	//  If function was called with no parameters, must to handle. . .
+
+function Item(color, count)	{
+	// Handle missing parameters in next two lines...
+	if (color == undefined) {this.colorOk = "Black";}
+	if (count == undefined) {this.countOk = 0;}
+	this.colorOk = color + " No Great!";
+	this.countOk = count + 3;
+	//  First Anonymous Function . . . 
+	this.toDOM = function() { ItemsOk.innerHTML = ('<h1>' + 'Quantity: ' + this.countOk +
+	', &nbsp; Color: <span style="color:blue">' + this.colorOk + '</span>');
+	return alert ("Hi There"); }
+}
+
+//  Creating Objects using the Custom Item() constructor & attaching arguments: 
+var showObjects = new Item("Blue", 9);
+
+// Calling toDOM Object (method) & bind its action to the next anonymous function, so
+// we can call it as a function value (var) when clic the getItems button.
+// NOTE that we are using a second Anonymous Function and CALLING a Function inside
+// another Function.
+var a = function() { showObjects.toDOM() };
+getItems.onclick = a;
+
+/*  T H I S    I S    O K E Y    without    B U T T O N    */
+// var showObjects = new Item("Blue", 9);
+// showObjects.toDOM();
+```
+&nbsp;  
+
+&nbsp;  
+
+### Custom Object Constructor Functions with Parameters       part 3 of 3.
+that CONTAINS METHODS defined as Objects.	        ejem:  Praxis135  
+Important: Althought it is possible create & call very simple methods via anonymuos functions as done in this.Log or this.toDOM functions, it's better and efficient to use the following technique in order to wrangle multiple and more complex methods.  CENGAGE JAVA SCRIPT WEB WARRIOR 6Ed  PAG. 511.   
+
+`<div id="summarySection"></div>`  
+
+Custom Object constructor function creates showOrder Method as Object, that is being assigned to the displayOrderInfo external function.  
+&nbsp;  
+
+NOTE. There is the Default Generic Object Constructor: Object();  
+	  that uses the next sintax:  
+	  var MyObject = new nameOfTheObject(); &nbsp; No uses the FUNCTION constructor  
+```JavaScript
+function Order(number, order, payment, ship) {
+	this.customerNumber = number;
+	this.orderDate = order;
+	this.paymentMethod = payment;
+	this.shippingDate = ship;
+	this.showOrder = displayOrderInfo; }  // displayOrderInfo --> External Function
+	// Proper syntax...  this.methodName = functionName;
+	// displayOrderInfo definition does NOT include parenthesses.  It's an OBJECT !
+
+// displayOrderInfo function that will be used as an Object METHOD	
+function displayOrderInfo() {
+	var summaryDiv = document.getElementById("summarySection");
+	summaryDiv.innerHTML += ("<p>Customer: " + this.customerNumber + "</p>");
+	summaryDiv.innerHTML += ("<p>Order Date: " + this.orderDate.toLocaleString() + "</p>");
+	summaryDiv.innerHTML += ("<p>Payment: " + this.paymentMethod + "</p>");
+	summaryDiv.innerHTML += ("<p>Ship Date: " + this.shippingDate.toLocaleString() + "</p>"); }
+
+//  Creating Objects using the Custom Order() constructor & attaching arguments:
+	var shoppingBasket = new Order("KJ2435J", new Date(2017, 6, 17),
+	"visa", new Date(2017, 6, 18));
+
+//  The Method showOrder that is defined as object property of Order() and contains
+//  the arguments of shoppingBasquet, will call the displayOrderInfo function.
+	shoppingBasket.showOrder();
+```
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
+
 
 ## JavaScript Object & Methods.
 
