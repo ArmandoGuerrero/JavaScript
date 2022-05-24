@@ -3,7 +3,7 @@
 
 - [JavaScript Variables](#javascript-variables)
 - [JavaScript Functions](#javascript-functions)
-- [JavaScript Objects & Methods](#javascript-object-&-methods)
+- [JavaScript Objects & Methods](#javascript-objects-&-methods)
 - [JavaScript CallBacks](#javascript-callbacks)
 - [JavaScript Arrow Functions](#javascript-arrow-functions)
 - [JavaScript Promises](#javascript-promises)
