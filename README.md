@@ -527,8 +527,8 @@ function displayOrderInfo() {
 &nbsp;  
 
 
-## JavaScript Objects & Methods.
-JavaScript Buid-in OBJECTS:
+## JavaScript Objects & Methods
+JavaScript Buid-in OBJECTS:  
 Array, Boolean, Date, Function, Math, Number, RegExp, String  
 ```JavaScript
 // Built in Methods & Properties Example:
