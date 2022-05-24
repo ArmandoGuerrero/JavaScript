@@ -545,8 +545,9 @@ Where...
 
 &nbsp;  
 
-### Array Types
+### Objects Types
 ```JavaScript
+// A R R A Y
 var names = ["Jerry", "Mac", "Paul"]; //Literal notation object Array constructor
 var names = new Array("Jerry", "Mac", "Paul");  // Using the constructor 'new'	
 
@@ -642,7 +643,6 @@ FUNCTIONS.HTML  File ...
 Function as Object Property Value.  
 Property Name: Method Name.  
 Property Value: Reference to included Function (usually anonymous) or Early Existing External Function.  
-- - - - - - - - - - - - - - - - -   
 ```JavaScript
 // Given such Early External Function Declaration:
 function OrderA() {alert('Price Two: ' + stockToSend.items.price2);}
@@ -769,7 +769,7 @@ buildPlanet("Jupiter", 5, "Gas Giant");
 ```
 &nbsp;  
 
-#### A N O T H E R   E X A M P L E . . .
+#### A N O T H E R &nbsp; &nbsp;  E X A M P L E . . .
 ```JavaScript
 var buildPlanet = function (nombre, lugar, tipo) { 
 	var planet = {}; // EMPTY generic object creation
@@ -826,11 +826,9 @@ You can see:
 { name: "México", population: 129940000, continent: "America", popdensity:
 65.8590978205778 }   */
 ```
+&nbsp;  
 
-
-
-
-
+&nbsp;  
 
 #### U S I N G  &nbsp;  O B J E C T S  &nbsp;  T O &nbsp;  P U T &nbsp; M U L T I P L E &nbsp;  R E T U R N  &nbsp;  V A L U E S  &nbsp;
 ```JavaScript
