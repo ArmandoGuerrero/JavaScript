@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><html><head><meta charset="utf-8"><title>Praxis133</title></head>
+<body>
+<!--  F U N C T I O N S     A S     V A R I A B L E S    O R    V A L U E S   -->
+
+<script>
+function toCentigrade(degFahren) {
+	var degCent = 5 / 9 * (degFahren - 32);
+	document.write(degFahren + " Fahrenheigt es " + degCent + " Celsius.<br />"); }
+function toFahrengeit(degCent) {
+	var degFahren = 9 / 5 * degCent + 32;
+	document.write(degCent + " Celsius es " + degFahren + " Fahrenheigt.<br />"); }
+
+function convertir(convertidor, temperature)
+
+// toFahrengeit OR toCentigrade functions are taken as variables -or values- 
+// and assingned to the CONVERTIDOR parameter, the second argument -a number-
+// passes to TEMPERATURE parameter.
+
+{ convertidor(temperature); }    // convertidor = toCentigrade OR toFahrengeit
+
+// In this CONVERTIR function's body we have a simple function call: CONVERTIDOR
+// wich has, in this runtime moment, the value (the code) of the toFahrengeit OR
+// toCentigrade functions, followed by the TEMPERATURE number argument.
+
+convertir(toCentigrade, 100);   // Calling CONVERTIR with toCentigrade argument
+convertir(toFahrengeit, 20);   // Calling CONVERTIR with toFahrengeit argument
+</script>
+
+</body>
+</html>
