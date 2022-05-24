@@ -655,11 +655,13 @@ var stockToSend = { myOrders: OrderA, // myOrders(method name)..... OrderA(metho
 	// whose Property Value is the Function reference OrderA (method value), use:
 		
 	//  Note the parenthesses to fetch myOrders ...
-stockToSend.myOrders();
+stockToSend.myOrders(); // Price Two: 4.99
 ```
 &nbsp;  
 
 &nbsp;  
+
+
 
 ```JavaScript
 //  /  /  /  /  /  Object   Properties  Reference   /  /  /  /  /  /  /
@@ -698,10 +700,30 @@ function Item()  {
 &nbsp;  
 
 &nbsp;  
+
+#### Passing an Object (name & value) to a Function as an Argument.
+(JavaScript Encapsulation Basics).
+The simplest form...  
+```JavaScript
+//  Being the next object:
+	var alumni;
+	alumni = { name: "Paola", group: "A", section: 9 };
+
+function myFunction(objetoA, objetoB) { 
+	alert('Object -name- value: ' + objetoB + '    ' +
+	'Object -section- value: ' + objetoA); } //
+
+// To call myFunction passing only SOME -alumni- object
+// properties (values) as Arguments we could write:
+	myFunction(alumni.section, alumni.name);
+```
+&nbsp;  
+
+&nbsp;  
+
 ```JavaScript
 // Passing an Object to a Function as an Argument.
 // JavaScript Encapsulation Basics.
-
 // See fourther about Encapsulation in the Promises & Thenables section.
 
 // Being the next object:
@@ -722,11 +744,52 @@ function Item()  {
 
 // In a Object Literal Notation, when including ALL properties in the 
 // wrangling, that process it is known as ENCAPSULATION or ENCAPSULATING
-// See fourther about Encapsulation in the Promises & Thenables repo.
+// See fourther about Encapsulation in the Promises & Thenables section.
 ```
 &nbsp;  
 
 &nbsp;
+
+### Functions to setting up objects (using object literal notation)
+from an EMPTY generic object via ADDING PROPERTIES NAMES & VALUES
+```JavaScript
+var buildPlanet = function create (nombre, lugar, tipo) { 
+	var planet = {}; // EMPTY generic object creation
+	planet.titulo = nombre;   	// Add new property names (titulo, position, type)
+	planet.position = lugar;	// to  the "planet" object
+	planet.type = tipo; 		// and implicit values ("Jupiter", 5, "Gas Giant")
+			console.log(planet); }
+buildPlanet("Jupiter", 5, "Gas Giant");
+// OutPut: { "titulo": "Jupiter", "position": 5, "type": "Gas Giant" }
+// "buidPlanet" Does Not create any object, simply build such
+// property name & values from the function's send arguments.
+// Actually the object is created by the function "create"
+// when reaches: var planet = {};
+// We can omit the name "create" in order to have an Anonymous Function
+```
+&nbsp;  
+
+#### A N O T H E R   E X A M P L E . . .
+```JavaScript
+var buildPlanet = function (nombre, lugar, tipo) { 
+	var planet = {}; // EMPTY generic object creation
+	planet.name = nombre; planet.position = lugar; planet.type = tipo;
+// Now we add a new property name: showPlanet & a method (function)
+// as its value, the next anonymous function...
+	planet.showPlanet = function () { 
+		var info = planet.name;
+		info += ": planet " + planet.position; 
+		info += " - " + planet.type; 
+		console.log(info); }; 
+	} ;
+var planet1 = buildPlanet("Jupiter", 5, "Gas Giant");
+var planet2 = buildPlanet("Neptune", 8, "Ice Giant");
+var planet3 = buildPlanet("Mercury", 1, "Terrestrial");
+planet1.showPlanet(); planet2.showPlanet(); planet3.showPlanet();
+```
+&nbsp;  
+
+&nbsp;  
 
 ### Changing Object's properties that was passed to a Function as Argument.
 ```JavaScript
@@ -760,7 +823,8 @@ properties names & values, using the next browser line command
 or inspector option:
 Choose the -Console- Tab & type: console.log(topTen)  ...Enter
 You can see:
-{ name: "México", population: 129940000, continent: "America", popdensity: 65.8590978205778 }   */
+{ name: "México", population: 129940000, continent: "America", popdensity:
+65.8590978205778 }   */
 ```
 
 
@@ -824,11 +888,73 @@ showResult(year2010);
 
 &nbsp;  
 
-FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9
-
-
 #### C U S T O M     O B J E C T S   (Object Constructor Functions)
+```JavaScript
+// As a convention syntax, name an Object Constructor Function with first
+// capital letter.
+var Puerto = function (name, country, ranking) { 
+// NOTE that an empty generic object: var = this {}; is automatically created! 
+	this.nombre = name; this.pais = country; 
+	// Since we have the -this- object created, we can add properties to it...
+	this.posicion = ranking; this.contacts = []; 
+	this.contactData = function (portData) { this.contacts.push(portData); }; 
+	this.showPlanet = function () { 
+		var info = "Nombre: " + this.nombre + "        País: " + this.pais; 
+		info +=  "        Número: " + this.posicion; 
+		console.log(info); 
+		// Apply a basic array method inside console.log
+		console.log("Contact Info...    " + this.contacts.join('  ,      ') 
+		+ " .");
+	};
+		// Without the var keyword we're declaring -leyenda- as global
+		// variable, so we can call it outside this anonymous function...
+	leyenda = [ this.nombre, ",", this.pais, ",", this.posicion ].join("|||||");
+
+	// NOTE that there is not -return- keyword!
+	
+// Despite not displayed, Javascript sends automatically the -RETURN- value containing
+// the whole object that has been builded, including the Array method.
+// To check the result type the next browser line command... console.log(puerto3)  ... Enter
+};
+	var title = "Top world container ports: " + "\n";
+	console.log(title);
+	
+	// As soon as -puerto1- expression call -Puerto- object constructor function,
+	// only will get generated the -leyenda- var. No -contactData- neither 
+	// -showPlanet- methods will be fetched!
+	var puerto1 = new Puerto( "Campo 1: Nombre     ", "  Campo 2: País      ",
+	"   Campo 3: Ranking.");
+	console.log(leyenda);
+	
+	// The next three instances invoques -Puerto- Object constructor function and
+	// -contactData- method (two times) to generate two values in the -this.contacts-
+	// array. Finally it will call the -showPlanet- method.
+	var puerto2 = new Puerto( "Shanghai", "China", 1 ); 
+	puerto2.contactData("Email: @shanghaiport.com"); 
+	puerto2.contactData("Phone: 666-222-333"); 
+	puerto2.showPlanet();
+	
+	var puerto3 = new Puerto( "Singapore", "Singapore", 2 ); 
+	puerto3.contactData("Email: @singaporeport.com"); 
+	puerto3.contactData("Phone: 567-844-111"); 
+	puerto3.showPlanet();
+// Since JavaScript is a Dynamic Type Language, the third argument unlike -puerto3-
+// it is a String...
+	var puerto4 = new Puerto( "Busan", "South Korea", "Tres" ); 
+	puerto4.contactData("Email: @busanport.com"); 
+	puerto4.contactData("Phone: 333-111-222"); 
+	puerto4.showPlanet();
+```
+&nbsp;  
+
+&nbsp;  
+
+FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9  
+
 SEE: Object Destructuring Assignment  
+
+
+&nbsp;  
 
 &nbsp;  
 
@@ -841,7 +967,8 @@ const greatAuthor = {
 	
   	mozart() {    
   // From ECS6 enhacements that includes *Object property initializer
-  // shorthand*, *Construct an object literal from local variables*, *Computed property name*
+  // shorthand*, *Construct an object literal from local variables*,
+  // *Computed property name*
   // that uses the *Square bracket notation*, we are using right here the
   // *Concise method syntax* by removing the colon (:) and the *function* keyword.
     	greatAuthor.aSong = "Tenth Symphony!";
