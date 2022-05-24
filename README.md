@@ -2,7 +2,7 @@
 ### Examples collection to learn JavaScript.  
 
 - [JavaScript Variables](#javascript-variables)
-- [JavaScript Functions](#javascript-functions.)
+- [JavaScript Functions](#javascript-functions)
 - [JavaScript Objects & Methods](#javascript-object-&-methods)
 - [JavaScript CallBacks](#javascript-callbacks)
 - [JavaScript Arrow Functions](#javascript-arrow-functions)
@@ -21,22 +21,31 @@
 &nbsp;  
 
 ## JavaScript Functions.
+
 #### Canonical names: PARAMETER in function declaration, ARGUMENT in function invocation.
 ### Function Declaration:
 ```JavaScript
 	function functionName (width, height) {
 	// Inside parenthesses place optional Parameters.
 	// If a Function declaration expect some Parameter, but the Function call lacks
-	such Argument, it will output ERROR UNDEFINED.
+	// such Argument, it will output ERROR UNDEFINED.
 			statements;
 			return Value;  }
 ```
 When Function Declaration do not write semicolon after curly braces, being Function
 Expression it is needed!
 The RETURN Value can be any local Variable inside the functionName, any number, string
-or boolean.  RETURN Value it's Optional.   
+or boolean.  RETURN Value it's Optional.  
+&nbsp;  
 
-&nbsp;
+If the statement starts with the function keyword, then it’s a function declaration,  
+otherwise it’s a *function expression* : it will be seen later....  
+&nbsp;  
+
+The function declaration creates a ***function variable*** — a variable with the  
+same name as the function name (e.g. functionName from the previous example).  
+&nbsp;  
+
 
 #### Invoking or Calling a Function:
 		
@@ -47,7 +56,7 @@ a space before or between nor after parentheses:
 `sayHello();`
 		
 Arguments are required and always they must be in the same consecutive order of the
-Parameters in the function´s declaration statement.
+Parameters in the function´s declaration statement.  
 If a Function declaration expect some Parameter, but the Function call lacks such
 Argument, the CODE WILL RUN ANYWAY with an output ERROR UNDEFINED!
 
@@ -107,12 +116,12 @@ var returnValue = Average(i, j, k);		//    Function Average called.
 ```
 NOTE  that  i,  j,  k  are variables too!  
 
-returnValue gets the RESULT value throught the AVERAGE's return statement.  
+***returnValue*** gets the RESULT value throught the AVERAGE's return statement.  
 ¡¡¡   If no RETURN statement, NO value sent to: var returnValue   !!!
 ```JavaScript
 // Display the Promedio to the user.
 document.getElementById('Promedio').innerHTML = returnValue;
-/* returnValue it´s the "return result" output from Average */
+// returnValue it´s the "return result" output from *Average*
 ```
 &nbsp;  
 
@@ -120,20 +129,22 @@ document.getElementById('Promedio').innerHTML = returnValue;
 
 ### F U N C T I O N  &nbsp; &nbsp;  E X P R E S S I O N S
 FUNCTIONS  AS  VARIABLES  OR  VALUES:  
-Unlike Canonical Function Declarations that always begins with the Function keyword, statements involving functions which do not start with FUNCTION Keyword are FUNCTION EXPRESSIONS.
+The function expression occurs when the function keyword creates a function (with or without a name) inside of an expression const, var or object method field.  
+
+Unlike Canonical Function Declarations that always begins with the ***function*** keyword, statements involving functions which do not start with FUNCTION Keyword are FUNCTION EXPRESSIONS.
 
 
 #### SIMPLEST FUNCTION EXPRESSION
 ```JavaScript
 var sayHello;     // variable declaration
 sayHello = function ()  { console.log("Hello World"); }; // <-- last semicolon it's required!
-// Being a variable as origin statement, the semicolon
-// at the end of the function expression is required!.
-// It is an Anonymous Function (next section)
+// It is an Anonymous Function (next section)  
+// Being a variable as origin statement, the semicolon  
+// at the end of the function expression is required!.  
+// It could be done in one step:
 
-
-// It could be done in one step:  
 var sayHello = function () {  // ... ...
+
 // depending on the statements... ; <--optional semicolon
 };
 // The last semicolon it's needed as it is a function expression!
@@ -142,6 +153,15 @@ var sayHello = function () {  // ... ...
 function sayHello () { console.log("Hello World"); }
 // No need semicolon when close the declaration!
 ```
+#### To access a function created using a function expression, we need to save the function -object- into a variable!
+```JavaScript
+// Works!
+const sum = (function (a, b) {
+  return a + b;
+});
+sum(1, 2); // ---> 3
+```
+
 &nbsp;  
 
 &nbsp;  
@@ -152,7 +172,7 @@ Note the Anonymous Function (next section)
 
 &nbsp;
 
-Using an IIFE Function to call another Function. CALLBACK FUNCTION.  
+Using an IIFE Function to call another Function. CUASI CALLBACK FUNCTION.  
 CallBack Function: A Function that is called and executed inside another Function.  
 
 &nbsp;
@@ -169,8 +189,19 @@ function hiTeam(myWords) { document.write("<h1>Hola y Adios...: " + myWords + "<
 ```  
 &nbsp;
 
-Functions that renders as Variables or Values . . .  
-Ejem. Praxis 133
+### Functions that renders as Variables or Values . . .
+
+```JavaScript
+const myObject = {
+  myMethod: function() { return 42;  // object method field
+  }
+};
+// myMethod  &  myObject  are both function expressions.
+```
+
+&nbsp;  
+
+Ejem. Praxis 133  
 ```JavaScript
 function toCentigrade(degFahren) {
 	var degCent = 5 / 9 * (degFahren - 32);
