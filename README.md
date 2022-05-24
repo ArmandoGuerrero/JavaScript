@@ -73,9 +73,7 @@ and their values are lost, unless you return one of them to the calling code.
 &nbsp;  
 
 ### SetUp Variables from Array of Return Values between Functions.
-Praxis 136  
-
-&nbsp;  
+Praxis 136    
 ```JavaScript
 function sayHello(greeting, exitStatement){
 	// add some feeling
