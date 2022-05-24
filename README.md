@@ -528,6 +528,360 @@ function displayOrderInfo() {
 
 
 ## JavaScript Object & Methods.
+JavaScript Buid-in OBJECTS:
+Array, Boolean, Date, Function, Math, Number, RegExp, String  
+```JavaScript
+// Built in Methods & Properties Example:
+	var r = document.getElementById("Radius").value;
+	var area = Math.PI * Math.pow(r, 2);
+		return area;
+```
+Where...  
+	-Math- is a JavaScript built in object.  
+	-PI- is a Math's object property !Has a value!  
+	-pow- is a Math's object method.  
+
+#### Objects in JavaScript are certain type of variable, then use VAR keyword to identify them as variables, so variable names represents objects.
+
+&nbsp;  
+
+### Array Types
+```JavaScript
+var names = ["Jerry", "Mac", "Paul"]; //Literal notation object Array constructor
+var names = new Array("Jerry", "Mac", "Paul");  // Using the constructor 'new'	
+
+// O T H E R S
+	var today = new Date();   // Using the constructor 'new'
+	var roundNumber = Math.round("3.14"); // NOTE: some JS build-in objects does
+				      // not have the constructor 'new'
+	var hello = new String("Hello!");
+
+
+// Literal Notation Object Constructor...
+	var book = { title: "Paramo", datePub: 1942, author: "Rulfo" };
+		// Final property name & property value has no comma after it
+
+
+// Creating an EMPTY generic object via literal notation:
+		//	First declare a variable by using the -var- keyword:
+				var book;
+		//  Later create an object by using curly braces & assign it to the variable:
+				book = { };		// must have a final semicolon as being a variable element
+	
+		// In short it could be...   // both are empty objects with no properties.
+				var totalPay = { };
+```
+
+#### DECLARING AN OBJECT  vs CREATING AN OBJECT...  
+`objectName = new PrototypeName(args...);`  
+`var order = new Object();   same as:   var order = { };`  
+
+In an Object Construction via Literal Notation: A Method (name) is an Object that carries an included function or existing external function as its property value.
+
+Let's use suchs functions to declare a Method (name & value) in an object construction via literal notation...  
+`<h1>Hi Twice...</h1>`  
+```JavaScript
+// Setting functions as properties of an object.
+// Given the next object...
+var HiTwice = {};
+// Add properties ...
+HiTwice.one = function() { alert( "Hi First Time" ); };
+HiTwice.two = function() { alert( "Hi Second Time" ); };
+	// function() { alert( "Hi First Time" ); }; ---> Method value
+	// function() { alert( "Hi Second Time" ); }; ---> Method value
+HiTwice.one(); // Method name
+HiTwice.two(); // Method name
+
+
+
+// In the next example both objects carries included (anonymous) functions...
+// We can also consider it like "Functions as Object Literals"
+var HelloMethods =
+	{ sayHello: function(message) { return message + "sayHello"; },
+							
+	 startle: function() {
+		alert(HelloMethods.sayHello("Hey there from Method ") + ". . . Bye"); }
+	};
+	
+// Calling STARTLE object as method (strictly speaking know as method name), through
+// its variable name: HelloMethods...
+
+HelloMethods.startle();
+
+// The STARTLE object property value (method value) it's a function, with an ALERT()
+// that inside will call another function: sayHello
+```
+`<h1>Hi Team!</h1>`  
+
+&nbsp;  
+
+#### Example that references an early existing external function.
+```JavaScript
+function checkTickets() { alert("Many Tickets") }
+var seats = {
+				spaces: {  },
+// method value references an early existing external function...
+				howMuchTickets: checkTickets,
+				
+				itemDescription: "Very nice color!"
+			};
+// Despite it is a function call, there is not parentheses after the
+// value: checkTickets
+// Unlike as the syntax for declaring an object property value, the
+// referenced value (function name) is not inside quotes.
+
+seats.howMuchTickets();
+```
+&nbsp;  
+
+&nbsp;  
+
+#### Another example that it is worth to check... taken from
+FUNCTIONS.HTML  File ...  
+
+Function as Object Property Value.  
+Property Name: Method Name.  
+Property Value: Reference to included Function (usually anonymous) or Early Existing External Function.  
+- - - - - - - - - - - - - - - - -   
+```JavaScript
+// Given such Early External Function Declaration:
+function OrderA() {alert('Price Two: ' + stockToSend.items.price2);}
+
+var stockToSend = { myOrders: OrderA, // myOrders(method name)..... OrderA(method value)
+// When OrderA function is called no parentheses or quotes are used!
+	items: { item1:"KJ24", price1:2.95, item2:"AW23", price2:4.99} };
+	
+	// To call the Object Property Name myOrders() as Method,
+	// whose Property Value is the Function reference OrderA (method value), use:
+		
+	//  Note the parenthesses to fetch myOrders ...
+stockToSend.myOrders();
+```
+&nbsp;  
+
+&nbsp;  
+
+```JavaScript
+//  /  /  /  /  /  Object   Properties  Reference   /  /  /  /  /  /  /
+// In JavaScript, property reference binding needs be done direct and explicit!
+var juan = {
+  name: 'John',
+  greet: function(person) {
+    console.log("Hi " + person + ", my name is " + this.name); // ONLY *name* without *this* ---> FAILS
+  }
+};
+// this.name  or  juan.name Works!
+juan.greet("Mark");
+
+	
+//  /  /  /  /  /   Custom Object Instances   /  /  /  /  /  /  / 
+
+function Item()  {
+   this.color = undefined; 	
+   this.count = 0;
+   this.log = function() { console.log("Quantity: " + this.count + ", Color: " + this.color + '\n' + this.year); };
+   }
+	
+   var MyObject = new Item();
+   MyObject.color = "Red";
+   MyObject.count = 5;
+   MyObject.year = 3333;  // Adding a property. Same could be done
+   		//through *Item.prototype.year = 3333*
+ 
+   MyObject.log(); //  Quantity: 5, Color: Red 2222
+
+// var MyObject = new item()... Build *custom object instances* to gain
+// access for change, add or handle that object's properties.
+// When the custom object instance as a function call: *new Item(x, y, z)*, 
+// includes arguments, becomes an *Object Constructor Function*.
+```
+&nbsp;  
+
+&nbsp;  
+```JavaScript
+// Passing an Object to a Function as an Argument.
+// JavaScript Encapsulation Basics.
+
+// See fourther about Encapsulation in the Promises & Thenables section.
+
+// Being the next object:
+	var alumni;
+	alumni = { name: "Paola", group: "A", section: 9 };
+
+// To call myFunction passing ALL -alumni- object properties as
+// Arguments we could write:
+	myFunction(alumni.name, alumni.group, alumni.section);
+
+// But it is better & easier to write:
+	myFunction(alumni);  	// this will include ALL the alumni's
+					// properties object.
+// So when you need only one or few properties, use the first
+// sintax described:
+	myFunction(alumni.group);   // or
+	myFunction(alumni.group, alumni.section);
+
+// In a Object Literal Notation, when including ALL properties in the 
+// wrangling, that process it is known as ENCAPSULATION or ENCAPSULATING
+// See fourther about Encapsulation in the Promises & Thenables repo.
+```
+&nbsp;  
+
+&nbsp;
+
+### Changing Object's properties that was passed to a Function as Argument.
+```JavaScript
+/* When we pass an Object to a Function as an Argument, the code
+in the Function body has acces to the object's properties. It
+can read them, change them, delete them and can add new properties
+too!
+Given such Object: */
+var topTen = { name: "México", population: 129940000, continent: "America" };
+var countryStats = function (initialData) {
+			var pop = initialData.population;
+	// Add a new property to the -initialData-  (topTen) object:
+			initialData.popdensity = pop/1973000; };
+	// 1973000 : Nation wide extension sqr kilometers
+var displayStats = function (finalData) {
+		console.log(finalData.name);
+		console.log("Densidad de Población = " + finalData.popdensity +
+					" habitantes por kilometro cuadrado"); };
+	// Calling both Functions taking care of the proper order:
+	countryStats(topTen);	// As soon as finishes this function execution,
+				// the topTen object has been modified with a new
+				// property added: topTen.popdensity
+	displayStats(topTen);
+
+/*  N O T E  that the code shows initialData.popDensity,
+because it is the name of the function parameter input: initialData.
+The same applies to the function displayStats wich is being used
+as parameter -finalData- input.
+Finally we can see the updated -topTen- object showing its total
+properties names & values, using the next browser line command
+or inspector option:
+Choose the -Console- Tab & type: console.log(topTen)  ...Enter
+You can see:
+{ name: "México", population: 129940000, continent: "America", popdensity: 65.8590978205778 }   */
+```
+
+
+
+
+
+
+<h1># # # # #      U S I N G    O B J E C T S     T O   P U T
+M U L T I P L E   R E T U R N    V A L U E S     # # # # # </h1>
+<script>
+var customCar, carOutPut, myCarA, myCarB;
+
+customCar = function (name, year, color, price, engine) {
+		return { motor: engine+" Litros", year, color, precio: "$"+ (price+(price*((0.16*10)/10))) +" IVA incluido", name } ;
+	};
+// NOTE the use of the Enhanced Object Literal Notation syntax, that allow us to avoid the repetitive writing of name: name, year: year, color: color. When needed we can change the  position and name: motor & precio.
+
+	myCarA = customCar("Mustang", 2008, "Rojo", 650000, "V8 4.0");
+	myCarB = customCar("BMW 500", 2010, "Navy", 900000, "V6 3.0");
+	
+	carOutPut = function (newCar) { return newCar.name.toUpperCase() + `   Año = ${newCar.year}` +  "   Kolor: " + newCar.color + `    Motor = ${newCar.motor}` + "   Precio: " + newCar.precio };
+
+console.log(carOutPut(myCarA));
+console.log(carOutPut(myCarB));
+</script>
+
+
+
+
+<h1>#  #  #  #  #  #  #  #  #  #  #  #  #  #  #
+USE FUNCTION'S RETURN TO HANDLE & PUT MULTIPLE OBJECT VALUES.
+#  #  #  #  #  #  #  #  #  #  #  #  #  #  #</h1>
+<script>
+var year2000, year2005, year2010, calcPopChange, showResult;
+
+calcPopChange = function ( yearInit, yearEnd ) {
+		return { female: yearEnd.female - yearInit.female, 
+				 male: yearEnd.male - yearInit.male } };
+
+	year2000 = { female: 4400000, male: 4085000 };
+// Combining Variables & Objects inside function´s Arguments:
+	year2005 = calcPopChange ( year2000, { male: 4250000, female: 4600000 } );
+	year2010 = calcPopChange ( year2000, { female: 4850000, male: 4535000 } );
+// NOTE that we can change the position of the Objects but not the position
+// of the Arguments sent to the calcPopChange function!
+
+showResult = function (resultData) {
+	console.log( 
+	"Females:" + resultData.female + "     Male: " + resultData.male ) };
+	
+console.log("Population @ 2000 Year:");
+showResult(year2000);
+console.log("Population change from 2000 to 2005: ");
+showResult(year2005);
+console.log("Population change from 2000 to 2010: ");
+showResult(year2010);
+</script>
+
+
+
+
+<!-- FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9 -->
+
+
++   +   +   +   +   +   +   +   +   +   +   +   +   +   +
+
+C U S T O M     O B J E C T S   (Object Constructor Functions)
+
++   +   +   +   +   +   +   +   +   +   +   +   +   +   +
+
+
+//  SEE: Object Destructuring Assignment
+
+
+
+	
+<h1>Methods or Functions Chaining!</h1>
+<h2 id="Chaining">Ok...</h2>
+<script>
+	
+const greatAuthor = {
+  aSong: null,
+	
+  logMelody() { console.log(greatAuthor.aSong); },
+	
+  mozart() {    // From ECS6 enhacements that includes *Object property initializer shorthand*, *Construct an object literal from local variables*, *Computed property name* that uses the *Square bracket notation*, we are using right here the *Concise method syntax* by removing the colon (:) and the *function* keyword.
+    greatAuthor.aSong = "Tenth Symphony!";
+    greatAuthor.logMelody();
+    return greatAuthor;   // The *return* reference it is necesary to pass all *greatAuthor* encapsulated object to the next METHOD CHAINING or FUNCTION CHAINING.
+  },
+
+  vivaldi() {
+    greatAuthor.aSong = "Four Seasons!";
+    greatAuthor.logMelody();
+    return this;  // NOTE: The object's explicit name can be switched to *this*
+  },
+	
+  liszt() {
+    greatAuthor.aSong = "Intermezzo!";
+    greatAuthor.logMelody();
+    return greatAuthor;
+  }
+
+};
+// Each chained Method can be called in any secuencial order.
+greatAuthor.mozart().liszt().vivaldi();
+
+
+
+
+
+
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
+
+&nbsp;  
+
 
 ## JavaScript CallBacks.
 #### C U A S I  &nbsp; &nbsp;  C A L L B A C K  &nbsp; &nbsp;  F U N C T I O N
