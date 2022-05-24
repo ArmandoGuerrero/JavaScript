@@ -10,7 +10,92 @@
 
 
 
-## JavaScript Variables.  
+## JavaScript Variables.
+```JavaScript
+var myVariable = "Hola Mundo";
+saludo1  =  "Hi Team";  // Whitout VAR keyword  !!Bad programming technique!!
+var salesPrice  =  8.95;				// Numeric
+var totalSales  =  Sales1 + Sales2;			// Evaluating
+var location  =  document.getElementById('OrigenPoint');  // From DOM
+
+
+// Calling a Function & Assing its RETURN to a VAR:   ejem:   Praxis130.
+
+var varName = functionName (arg1, arg2, arg3,  . . .  ,  argN);
+
+// The RETURN value from FUNCTION NAME will be assingned to VARNAME.
+// This code will run without the keyword VAR, but BAD PROG TECH.
+```
+&nbsp;  
+
+&nbsp;  
+
+### Functions as Variables or Values
+```JavaScript
+function toCentigrade(degFahren) {
+	var degCent = 5 / 9 * (degFahren - 32);
+	document.write(degFahren + " Fahrenheigt es " + degCent +
+	" Celsius.<br />"); }
+function toFahrengeit(degCent) {
+	var degFahren = 9 / 5 * degCent + 32;
+	document.write(degCent + " Celsius es " + degFahren +
+	" Fahrenheigt.<br />"); }
+
+function convertir(convertidor, temperature)
+
+// toFahrengeit OR toCentigrade functions are taken as variables -or values-
+and assingned to the CONVERTIDOR parameter, the second argument -a number-
+passes to TEMPERATURE parameter.
+
+{ convertidor(temperature); }    // convertidor = toCentigrade OR toFahrengeit
+
+// In this CONVERTIR function's body we have a simple function call: CONVERTIDOR
+wich has, in this runtime moment, the value (the code) of the toFahrengeit OR
+toCentigrade functions, followed by the TEMPERATURE number argument.
+
+convertir(toCentigrade, 33);   // Calling CONVERTIR with toCentigrade argument
+convertir(toFahrengeit, 23);   // Calling CONVERTIR with toFahrengeit argument
+```
+&nbsp;  
+
+&nbsp;  
+
+### Variables Scope & Lifetime:
+When the code inside a function ends and execution returns to the point at which  
+the code was called, the variables defined within the function does NOT retain  
+their value anymore.  
+Variables not only have the Scope property -where they are visible- but they also  
+have a lifetime. When the function finishes executing, the local variables die  
+and their values are lost, unless you return one of them to the calling code.  
+
+&nbsp;  
+
+&nbsp;  
+
+### SetUp Variables from Array of Return Values between Functions.
+Praxis 136  
+
+&nbsp;  
+```JavaScript
+function sayHello(greeting, exitStatement){
+	// add some feeling
+	var newGreeting = greeting + " !", newExitStatement = exitStatement + " ! !";
+	// return the arguments using an array
+	return [newGreeting, newExitStatement]; }
+
+function startle(polite, rude){
+	// call sayHello function with arguments polite & rude to parameters:
+	// greeting & exitStatement,  then performing
+	// newGreeting variable to the return array  ... index zero
+	// newExitStatement variable to the return array ... index one
+	
+	var Gracias = sayHello(polite, rude)[0], Okay = sayHello(polite, rude)[1];
+	// alert variables Gracias & Okay that have been passed through each function
+	alert(Gracias + " -- " + Okay); }
+	
+//  call the function with two arguments defined
+startle("Thank you", "Cheeers!");
+```
 
 &nbsp;  
 
