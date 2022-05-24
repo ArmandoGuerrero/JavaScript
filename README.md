@@ -527,7 +527,7 @@ function displayOrderInfo() {
 &nbsp;  
 
 
-## JavaScript Object & Methods.
+## JavaScript Objects & Methods.
 JavaScript Buid-in OBJECTS:
 Array, Boolean, Date, Function, Math, Number, RegExp, String  
 ```JavaScript
@@ -768,32 +768,34 @@ You can see:
 
 
 
-<h1># # # # #      U S I N G    O B J E C T S     T O   P U T
-M U L T I P L E   R E T U R N    V A L U E S     # # # # # </h1>
-<script>
+#### U S I N G  &nbsp;  O B J E C T S  &nbsp;  T O &nbsp;  P U T &nbsp; M U L T I P L E &nbsp;  R E T U R N  &nbsp;  V A L U E S  &nbsp;
+```JavaScript
 var customCar, carOutPut, myCarA, myCarB;
 
 customCar = function (name, year, color, price, engine) {
-		return { motor: engine+" Litros", year, color, precio: "$"+ (price+(price*((0.16*10)/10))) +" IVA incluido", name } ;
+		return { motor: engine+" Litros", year, color, precio: "$"+
+		(price+(price*((0.16*10)/10))) +" IVA incluido", name } ;
 	};
-// NOTE the use of the Enhanced Object Literal Notation syntax, that allow us to avoid the repetitive writing of name: name, year: year, color: color. When needed we can change the  position and name: motor & precio.
+// NOTE the use of the Enhanced Object Literal Notation syntax, that allow 
+// us to avoid the repetitive writing of name: name, year: year, color: color.
+// When needed we can change the  position and name: motor & precio.
 
 	myCarA = customCar("Mustang", 2008, "Rojo", 650000, "V8 4.0");
 	myCarB = customCar("BMW 500", 2010, "Navy", 900000, "V6 3.0");
 	
-	carOutPut = function (newCar) { return newCar.name.toUpperCase() + `   Año = ${newCar.year}` +  "   Kolor: " + newCar.color + `    Motor = ${newCar.motor}` + "   Precio: " + newCar.precio };
+	carOutPut = function (newCar) { return newCar.name.toUpperCase() +
+	`   Año = ${newCar.year}` +  "   Kolor: " + newCar.color +
+	`    Motor = ${newCar.motor}` + "   Precio: " + newCar.precio };
 
 console.log(carOutPut(myCarA));
 console.log(carOutPut(myCarB));
-</script>
+```
+&nbsp;  
 
+&nbsp;  
 
-
-
-<h1>#  #  #  #  #  #  #  #  #  #  #  #  #  #  #
-USE FUNCTION'S RETURN TO HANDLE & PUT MULTIPLE OBJECT VALUES.
-#  #  #  #  #  #  #  #  #  #  #  #  #  #  #</h1>
-<script>
+#### USE FUNCTION'S RETURN TO HANDLE & PUT MULTIPLE OBJECT VALUES.
+```JavaScript
 var year2000, year2005, year2010, calcPopChange, showResult;
 
 calcPopChange = function ( yearInit, yearEnd ) {
@@ -817,39 +819,35 @@ console.log("Population change from 2000 to 2005: ");
 showResult(year2005);
 console.log("Population change from 2000 to 2010: ");
 showResult(year2010);
-</script>
+```
+&nbsp;  
+
+&nbsp;  
+
+FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9
 
 
+#### C U S T O M     O B J E C T S   (Object Constructor Functions)
+SEE: Object Destructuring Assignment  
 
+&nbsp;  
 
-<!-- FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9 -->
-
-
-+   +   +   +   +   +   +   +   +   +   +   +   +   +   +
-
-C U S T O M     O B J E C T S   (Object Constructor Functions)
-
-+   +   +   +   +   +   +   +   +   +   +   +   +   +   +
-
-
-//  SEE: Object Destructuring Assignment
-
-
-
-	
-<h1>Methods or Functions Chaining!</h1>
-<h2 id="Chaining">Ok...</h2>
-<script>
-	
+### Methods or Functions Chaining!
+```JavaScript
 const greatAuthor = {
   aSong: null,
 	
   logMelody() { console.log(greatAuthor.aSong); },
 	
-  mozart() {    // From ECS6 enhacements that includes *Object property initializer shorthand*, *Construct an object literal from local variables*, *Computed property name* that uses the *Square bracket notation*, we are using right here the *Concise method syntax* by removing the colon (:) and the *function* keyword.
-    greatAuthor.aSong = "Tenth Symphony!";
-    greatAuthor.logMelody();
-    return greatAuthor;   // The *return* reference it is necesary to pass all *greatAuthor* encapsulated object to the next METHOD CHAINING or FUNCTION CHAINING.
+  	mozart() {    
+  // From ECS6 enhacements that includes *Object property initializer
+  // shorthand*, *Construct an object literal from local variables*, *Computed property name*
+  // that uses the *Square bracket notation*, we are using right here the
+  // *Concise method syntax* by removing the colon (:) and the *function* keyword.
+    	greatAuthor.aSong = "Tenth Symphony!";
+    	greatAuthor.logMelody();
+    	return greatAuthor;   // The *return* reference it is necesary to pass all
+	// *greatAuthor* encapsulated object to the next METHOD CHAINING or FUNCTION CHAINING.
   },
 
   vivaldi() {
@@ -867,12 +865,7 @@ const greatAuthor = {
 };
 // Each chained Method can be called in any secuencial order.
 greatAuthor.mozart().liszt().vivaldi();
-
-
-
-
-
-
+```
 
 &nbsp;  
 
