@@ -3,7 +3,7 @@
 
 - [JavaScript Variables](#javascript-variables)
 - [JavaScript Functions](#javascript-functions)
-- [JavaScript Objects & Methods](#javascript-objects-&-methods)
+- [JavaScript Objects and Methods](#javascript-objects-and-methods)
 - [JavaScript CallBacks](#javascript-callbacks)
 - [JavaScript Arrow Functions](#javascript-arrow-functions)
 - [JavaScript Promises](#javascript-promises)
@@ -527,7 +527,7 @@ function displayOrderInfo() {
 &nbsp;  
 
 
-## JavaScript Objects & Methods
+## JavaScript Objects and Methods
 JavaScript Buid-in OBJECTS:  
 Array, Boolean, Date, Function, Math, Number, RegExp, String  
 ```JavaScript
