@@ -1,3 +1,4 @@
+
 function Item(color, count)	{
 	// Handle missing parameters in next two lines...
 	if (color == undefined) {this.colorOk = "Black";}
@@ -15,3 +16,5 @@ getItems.onclick = a;        // Calling a Function without Parenthesses Praxis13
 /*  T H I S    I S    O K E Y    without    B U T T O N    */
 // var showObjects = new Item("Blue", 9);
 // showObjects.toDOM();
+
+//
