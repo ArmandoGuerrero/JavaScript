@@ -1,4 +1,5 @@
-// Object constructor function creates showOrder Method as Object, that is being assigned to the displayOrderInfo function.
+// Object constructor function creates showOrder Method as Object, that is
+// being assigned to the displayOrderInfo function.
 
 function Order(number, order, payment, ship) {
 	this.customerNumber = number;
@@ -18,7 +19,8 @@ function displayOrderInfo() {
 	summaryDiv.innerHTML += ("<p>Ship Date: " + this.shippingDate.toLocaleString() + "</p>"); }
 
 //  Creating Objects using the Order() constructor & attaching arguments:
-	var shoppingBasket = new Order("KJ2435J", new Date(2017, 6, 17), "visa", new Date(2017, 6, 18));
+var shoppingBasket = new Order("KJ2435J", new Date(2017, 6, 17), "visa", new Date(2017, 6, 18));
 
-//  The Method showOrder that is defined as object property of Order() and contains the arguments of shoppingBasquet, will call the displayOrderInfo function.
+// The Method showOrder that is defined as object property of Order() and contains
+// the arguments of shoppingBasquet, will call the displayOrderInfo function.
 	shoppingBasket.showOrder();
