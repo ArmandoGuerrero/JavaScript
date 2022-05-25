@@ -886,7 +886,7 @@ showResult(year2010);
 
 &nbsp;  
 
-#### C U S T O M     O B J E C T S   (Object Constructor Functions)
+#### C U S T O M &nbsp; &nbsp; O B J E C T S   (Object Constructor Functions)
 ```JavaScript
 // As a convention syntax, name an Object Constructor Function with first
 // capital letter.
@@ -947,6 +947,42 @@ var Puerto = function (name, country, ranking) {
 
 &nbsp;  
 
+### Custom Object Instances
+```JavaScript
+function Item()  {
+   this.color = undefined; 	
+   this.count = 0;
+   this.log = function() { console.log("Quantity: " + this.count + ", Color: " + this.color + '\n' + this.year); };
+   }
+	
+   var MyObject = new Item();
+   MyObject.color = "Red";
+   MyObject.count = 5;
+   MyObject.year = 3333;  // Adding a property. Same could be done through *Item.prototype.year = 3333*
+ 
+   MyObject.log(); //  Quantity: 5, Color: Red 2222
+
+// var MyObject = new item()... Build *custom object instances* to
+// gain access for change, add or handle that object's properties.
+
+// When the custom object instance as a function call:
+// *new Item(x, y, z)*, includes arguments, becomes an *Object
+// Constructor Function*.
+```
+&nbsp;  
+
+&nbsp;  
+
+
+
+
+
+
+
+
+
+
+
 FROM THE GET PROGRAMMING MANNIG BOOK, POINT TO Chapter 9  
 
 SEE: Object Destructuring Assignment  
@@ -957,6 +993,7 @@ SEE: Object Destructuring Assignment
 &nbsp;  
 
 ### Methods or Functions Chaining!
+#### Handling Encapsulated Objects
 ```JavaScript
 const greatAuthor = {
   aSong: null,
@@ -991,6 +1028,8 @@ const greatAuthor = {
 // Each chained Method can be called in any secuencial order.
 greatAuthor.mozart().liszt().vivaldi();
 ```
+
+&nbsp;  
 
 &nbsp;  
 
@@ -1092,6 +1131,8 @@ function higherOrderFunction (x, callback) {
 }
 console.log("The Dog says: ", higherOrderFunction(10, add)); // 15
 ```
+&nbsp;  
+
 &nbsp;  
 
 &nbsp;  
@@ -1247,6 +1288,10 @@ let person = ((name) => {
 
 &nbsp;  
 
+&nbsp;  
+
+&nbsp;  
+
 ## JavaScript Promises.
 #### Simple Examples:
 ```JavaScript
@@ -1322,13 +1367,15 @@ myPromise.then( apiCall_A ).then( myBrowser ).then( myServer ).then( apiCall_B )
 #### The early adoption of encapsulation.
 ```JavaScript
 exploitDetails = function(drone, game) {
-return "Game name: " + game.name + " , Drone Model: " + drone.model + ", Drone Brand: " +
-drone.brand + ", Engines: " + drone.engines + ", Color: " + drone.color + ",
-and Players in Baseball: " + game.players; }
+return "Game name: " + game.name + " , Drone Model: " + drone.model + ",
+Drone Brand: " + drone.brand + ", Engines: " + drone.engines + ", Color: "
++ drone.color + ", and Players in Baseball: " + game.players; }
 
-console.log(exploitDetails({model: "Pulsar Q55", brand: "AFlight", engines: 4, color: "Blue"}, {name: "Baseball", team: "Caneks", players: 9}));
+console.log(exploitDetails({model: "Pulsar Q55", brand: "AFlight",
+engines: 4, color: "Blue"}, {name: "Baseball", team: "Caneks",
+players: 9}));
 ```
-Although the above snippet works okay it is better to encapsulate the data (and methods) through the required variables. Use each *var* as a single object to wrap all the collection.
+Although the above snippet works okay it is better to encapsulate the data (and methods) through the required variables. Use each ***var*** as a single object to wrap all the collection.
 ```JavaScript
 var encapsulate1 = {
 	model: "Pulsar Q55",
