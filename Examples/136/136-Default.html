@@ -1,0 +1,29 @@
+/*   =   =   =   =   =   =   =   =   =   =   =   
+	136 - SetUp Variables from Array of Return Values between Functions
+	Addison Wesley - Learning JavaScript 2013. Chapt.6 ;  Pag. 111   
+    RETURNED FUNCTION VALUES PASSED INTO ANOTHER FUNCTION    
+     =   =   =   =   =   =   =   =   =   =   =    */
+<html>
+<script>
+function sayHello(greeting, exitStatement){
+	// add some feeling
+	var newGreeting = greeting + " !", newExitStatement = exitStatement + " ! !";
+	// return the arguments using an array
+	return [newGreeting, newExitStatement]; }
+
+function startle(polite, rude){
+	// call sayHello function with arguments polite & rude to parameters:
+	// greeting & exitStatement,  then performing
+	// newGreeting variable to the return array  ... index zero
+	// newExitStatement variable to the return array ... index one
+	
+	var Gracias = sayHello(polite, rude)[0], Okay = sayHello(polite, rude)[1];
+	// alert variables Gracias & Okay that have been passed through each function
+	alert(Gracias + " -- " + Okay); }
+	
+//  call the function with two arguments defined
+startle("Thank you", "Cheeers");
+
+</script>
+</html>
+
