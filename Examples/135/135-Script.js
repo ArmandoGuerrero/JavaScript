@@ -1,3 +1,5 @@
+// 
+
 // Object constructor function creates showOrder Method as Object, that is
 // being assigned to the displayOrderInfo function.
 
@@ -24,3 +26,6 @@ var shoppingBasket = new Order("KJ2435J", new Date(2017, 6, 17), "visa", new Dat
 // The Method showOrder that is defined as object property of Order() and contains
 // the arguments of shoppingBasquet, will call the displayOrderInfo function.
 	shoppingBasket.showOrder();
+// 
+
+// 
