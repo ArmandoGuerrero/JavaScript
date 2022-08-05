@@ -1069,6 +1069,7 @@ The callback function may be called synchronously or asynchronously and possibly
 
 &nbsp;  
 
+### LEVERAGING &nbsp; SEQUENCE &nbsp; CONTROL
 #### SYNCHRONOUS  &nbsp;  CALLBACK  &nbsp;  FUNCTIONS
 ```JavaScript
 // A function that uses a callback named `cb` as a parameter
@@ -1090,6 +1091,24 @@ Hello Team!
 After getSyncMessage call  
 
 &nbsp;  
+
+#### Sometimes we need control over when to execute a function.  
+```JavaScript
+We will call a calculator function (myCalculator), save the  
+result and then call another function (myDisplayer) to display  
+the result:  
+```JavaScript
+function myDisplayer(some) {
+document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2) {
+	let sum = num1 + num2;
+	return sum;
+}
+let result = myCalculator(5, 6);
+myDisplayer(result);
+```
+
 
 &nbsp;  
 
