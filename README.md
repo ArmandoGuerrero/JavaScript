@@ -1093,7 +1093,6 @@ After getSyncMessage call
 &nbsp;  
 
 #### Sometimes we need control over when to execute a function.  
-```JavaScript
 We will call a calculator function (myCalculator), save the  
 result and then call another function (myDisplayer) to display  
 the result:  
