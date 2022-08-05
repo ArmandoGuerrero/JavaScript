@@ -1069,7 +1069,6 @@ The callback function may be called synchronously or asynchronously and possibly
 
 &nbsp;  
 
-### LEVERAGING &nbsp; SEQUENCE &nbsp; CONTROL
 #### SYNCHRONOUS  &nbsp;  CALLBACK  &nbsp;  FUNCTIONS
 ```JavaScript
 // A function that uses a callback named `cb` as a parameter
@@ -1092,8 +1091,10 @@ After getSyncMessage call
 
 &nbsp;  
 
-#### Sometimes we need control over when to execute a function.  
-We will call a calculator function (myCalculator), save the  
+### UNDERSTANDING CALLBACKS IN THREE STEPS:
+#### THE &nbsp; SEQUENCE &nbsp; CONTROL
+#### We need control over when to execute a function.  
+STEP 1. We will call a calculator function (myCalculator), save the  
 result and then call another function (myDisplayer) to display  
 the result:  
 ```JavaScript
@@ -1108,7 +1109,7 @@ myCalculator(5, 6);
 ```
 &nbsp;  
 
-Another flavor using an EXPRESSION ...  
+STEP 2. Leveraging an EXPRESSION to call another function:
 
 ```JavaScript
 function myDisplayer(some) {
@@ -1121,11 +1122,36 @@ function myCalculator(num1, num2) {
 let result = myCalculator(5, 6);
 myDisplayer(result);
 ```
+&nbsp;  
 
+STEP 3. A callback is a function passed as an argument to  
+another function. Using a callback you could call the calculator  
+function (myCalculator) with a callback, and let the calculator  
+function run the callback after the calculation is finished:  
+
+```
+function myDisplayer(some) {
+   document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2, myCallback) {
+	let sum = num1 + num2;
+	myCallback(sum);
+}
+myCalculator(5, 6, myDisplayer);
+```
+`myDisplayer` &nbsp; is the name of a function. It is passed  
+to &nbsp; `myCalculator()` &nbsp; as an argument.  
+When pass a function as an argument remember not to use  
+parenthesis:  &nbsp; `myCalculator(5, 6, myDisplayer)` .  
+Okay!  
+
+_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  
 
 &nbsp;  
 
-#### C A L L B A C K S  &nbsp; &nbsp;  E X A M P L E S
+&nbsp;  
+
+#### M O R E &nbsp; &nbsp; C A L L B A C K S  &nbsp; &nbsp;  E X A M P L E S
 ```JavaScript
 function add(a, b, callback) { // function declaration
   suma = callback(a + b);  // function execution to spawn *Result: 8* 
