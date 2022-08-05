@@ -1098,7 +1098,21 @@ result and then call another function (myDisplayer) to display
 the result:  
 ```JavaScript
 function myDisplayer(some) {
-document.getElementById("demo").innerHTML = some;
+   document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2) {
+	let sum = num1 + num2;
+	myDisplayer(sum);
+}
+myCalculator(5, 6);
+```
+&nbsp;  
+
+Another flavor using an EXPRESSION ...  
+
+```JavaScript
+function myDisplayer(some) {
+   document.getElementById("demo").innerHTML = some;
 }
 function myCalculator(num1, num2) {
 	let sum = num1 + num2;
