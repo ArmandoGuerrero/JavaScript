@@ -1125,17 +1125,25 @@ myDisplayer(result);
 &nbsp;  
 
 STEP 3. A callback is a function passed as an argument to  
-another function. Using a callback you could call the calculator  
-function (myCalculator) with a callback, and let the calculator  
-function run the callback after the calculation is finished:  
+another function. Using a callback you could call the Calculator  
+function (myCalculator) with a callback, and let the Calculator  
+function run the callback AFTER the calculation is finished.  
+&nbsp;  
+So we have build asynchronous functions, i.e., where one function  
+has to wait for another function, like waiting for a file to load.
 
 ```
 function myDisplayer(some) {
    document.getElementById("demo").innerHTML = some;
 }
 function myCalculator(num1, num2, myCallback) {
-	let sum = num1 + num2;
-	myCallback(sum);
+// A field with the name myCallback was injected, means that
+// myDisplayer body function was placed in that argument field
+// but not running...
+
+   let sum = num1 + num2;
+
+   myCallback(sum);  // Calling the myCallback -myDisplayer- running!
 }
 myCalculator(5, 6, myDisplayer);
 ```
@@ -1144,6 +1152,8 @@ to &nbsp; `myCalculator()` &nbsp; as an argument.
 When pass a function as an argument remember not to use  
 parenthesis:  &nbsp; `myCalculator(5, 6, myDisplayer)` .  
 Okay!  
+Could I write:
+`myCalculator(5, 6, function myDisplayer(some) { document.getElementById("demo").innerHTML = some; });`
 
 _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  
 
